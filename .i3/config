@@ -29,9 +29,18 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 client.focused 		#809070	#606F50	#EEEEEE	#2E9EF4
 client.focused_inactive	#333333	#5F676A	#EEEEEE	#484E50
 
+# scrot & gimp - root
+bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+# scrot & gimp - select window or rectangle
+bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+
 # My defined startup applications
-exec chromium
-exec terminator
+eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
+exec compton -CG
+#exec chromium
+#exec terminator
+exec nm-applet
+exec --no-startup-id nitrogen --restore
 
 # Hide the borders adjacent to screen edges
 hide_edge_borders both 

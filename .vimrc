@@ -1,13 +1,58 @@
-execute pathogen#infect()
-syntax on
-set number
-filetype plugin indent on
-set t_Co=256
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" Bundles
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
+Bundle "majutsushi/tagbar"
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'marijnh/tern_for_vim'
+
 
 colorscheme distinguished 
+set t_Co=256
+syntax on
+set number
+set nowrap
+set cursorline
+hi CursorLine term=bold cterm=bold ctermbg=black
+set synmaxcol=128
+set ttyscroll=10
+set tabstop=2
+set nowrap
+set noswapfile
+set nobackup
+set nowritebackup
+set hlsearch
+set ignorecase
+set smartcase
+filetype plugin indent on
 
-"Tagbar
+
+let g:syntastic_check_on_open=1
+
+" Tagbar
 nmap <C-x> :TagbarToggle<CR>
+
+" YCM gives you popups and splits by default that some people might not like, so these should tidy it up a bit for you.
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
 
 " Mapping NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -25,3 +70,5 @@ map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
+
+imap <C-o> <CR><Esc>O
