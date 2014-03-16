@@ -18,22 +18,28 @@ Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 Bundle "majutsushi/tagbar"
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
+"Bundle 'pangloss/vim-javascript'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'altercation/vim-colors-solarized'
 
 
-colorscheme distinguished 
-set t_Co=256
+"colorscheme distinguished 
 syntax on
+set t_Co=256
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 set number
 set nowrap
 set cursorline
 hi CursorLine term=bold cterm=bold ctermbg=black
 set synmaxcol=128
 set ttyscroll=10
-set tabstop=2
+set tabstop=2 
+set shiftwidth=2
+set noexpandtab
 set nowrap
 set noswapfile
 set nobackup
@@ -52,6 +58,7 @@ nmap <C-x> :TagbarToggle<CR>
 " YCM gives you popups and splits by default that some people might not like, so these should tidy it up a bit for you.
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 set completeopt-=preview
 
 " Mapping NERDTree
