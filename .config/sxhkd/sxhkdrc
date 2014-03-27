@@ -1,0 +1,105 @@
+#
+# bspwm hotkeys
+#
+
+#quit bspwm
+super + shift + q
+	pkill -x panel; bspc quit
+
+#close window
+super + x
+	bspc window -c
+
+#cycle layout
+super + t
+	bspc desktop -l next
+
+#balance layout
+super + b
+	bspc desktop -B
+
+#toggle floating and fullscreen
+super + {s,f}
+	bspc window -t {floating,fullscreen}
+
+#go to last window/desktop
+super + {grave,Tab}
+	bspc {window,desktop} -f last
+
+#got to last window
+super + apostrophe
+	bspc window -s last
+
+#enable disable the recording of window focus history
+super + {o,i}
+	bspc control --record-history off; \
+	bspc window {older,newer} -f; \
+	bspc control --record-history on
+
+#go to last window with manual splitting mode
+super + y
+	bspc window -w last.manual
+
+#go to window that is biggest
+super + m
+	bspc window -s biggest
+
+#navigate and "shift" partitions
+super + {_,shift + }{h,j,k,l}
+	bspc window -{f,s} {left,down,up,right}
+
+#navigate to next or previous window
+super + {_,shift + }c
+	bspc window -f {next,prev}
+
+#navigate to backward or forward desktop
+super + {comma,period}
+	bspc desktop -C {backward,forward}
+
+#navigate to prev or next desktop
+super + bracket{left,right}
+	bspc desktop -f {prev,next}
+
+super + ctrl + {h,j,k,l}
+	bspc window -p {left,down,up,right}
+
+super + ctrl + {_,shift + }space
+	bspc {window -p cancel,desktop -c}
+
+super + alt + {h,j,k,l}
+	bspc window -e {left -10,down +10,up -10,right +10}
+
+super + alt + shift + {h,j,k,l}
+	bspc window -e {right -10,up +10,down -10,left +10}
+
+super + ctrl + {1-9}
+	bspc window -r 0.{1-9}
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,window -d} ^{1-9,10}
+
+#~button1
+#	bspc pointer -g focus
+
+#super + button{1-3}
+#	bspc pointer -g {move,resize_side,resize_corner}
+
+#super + !button{1-3}
+#	bspc pointer -t %i %i
+
+#super + @button{1-3}
+#	bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+	urxvt
+
+super + space
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + r
+	pkill -USR1 -x sxhkd
