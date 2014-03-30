@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+#Define the battery
+Battery() {
+        BATPERC=$(acpi --battery | awk -F, '{print $2}')
+        echo "$BATPERC"
+}
+
+# Print the percentage
+while true; do
+        echo "B$(Battery)%"
+        sleep 60;
+done

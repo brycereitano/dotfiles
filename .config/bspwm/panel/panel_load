@@ -1,0 +1,7 @@
+#!/bin/sh
+
+while true
+do
+    cat /proc/loadavg | awk '{ printf "L%s %s %s\n", $1, $2, $3}'
+    sleep 5
+done

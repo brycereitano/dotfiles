@@ -28,9 +28,10 @@ Bundle 'altercation/vim-colors-solarized'
 "colorscheme distinguished 
 syntax on
 set t_Co=256
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme scrot
 set number
 set nowrap
 set cursorline

@@ -27,11 +27,27 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			sys_infos="%{r F$COLOR_STATUS_FG B$COLOR_BACKGROUND} ${line#?}"
+			sys_infos="%{ F$COLOR_STATUS_FG B$COLOR_BACKGROUND} ${line#?}"
 			;;
 		T*)
 			# xtitle output
-			title="%{r F$COLOR_TITLE_FG B$COLOR_BACKGROUND} ${line#?}"
+			title="%{ F$COLOR_TITLE_FG B$COLOR_BACKGROUND} ${line#?}"
+			;;
+		V*)
+			# volume output
+			volume="%{ F$COLOR_STATUS_FG B$COLOR_BACKGROUND}Vol: ${line#?}%"
+			;;
+		M*)
+			# memory output
+			memory="%{ F$COLOR_STATUS_FG B$COLOR_STATUS_BG}Mem: ${line#?}%"
+			;;
+		L*)
+			# load output
+			load="%{ F$COLOR_STATUS_FG B$COLOR_STATUS_BG}Load: ${line#?}"
+			;;
+		B*)
+			# battery output
+			battery="%{ F$COLOR_STATUS_FG B$COLOR_STATUS_BG}Bat: ${line#?}"
 			;;
 		W*)
 			# bspwm internal state
@@ -76,5 +92,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} $wm_infos %{c} $title %{r} $sys_infos"
+	printf "%s\n" "%{l} $wm_infos %{c} $title %{r} $volume | $battery | $memory | $load | $sys_infos"
 done
