@@ -14,7 +14,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+" Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
 Bundle "honza/vim-snippets"
 Bundle "majutsushi/tagbar"
 Bundle 'jelera/vim-javascript-syntax'
@@ -51,7 +52,18 @@ set smartcase
 filetype plugin indent on
 
 
+" Syntastic
 let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_python_flake8_args = "--max-line-length=160"
+
+"Snipmate
+" let g:snipMateAllowMatchingDot = 0
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Tagbar
 nmap <C-x> :TagbarToggle<CR>
@@ -60,6 +72,8 @@ nmap <C-x> :TagbarToggle<CR>
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+let g:ycm_key_list_previous_completion = ['<C-n>','<Up>']
+let g:ycm_key_list_select_completion = ['<C-p>', '<Down>']
 set completeopt-=preview
 
 " Mapping NERDTree

@@ -1,4 +1,5 @@
-#! /bin/sh
+# ! /bin/sh
+PANEL_HEIGHT=16
 
 if [ $(pgrep -cx panel) -gt 1 ] ; then
 	printf "%s\n" "The panel is already running." >&2
@@ -10,7 +11,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-bspc config top_padding $PANEL_HEIGHT
+bspc config top_padding 6
 
 bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
@@ -18,8 +19,8 @@ clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
 panel_volume > "$PANEL_FIFO" &
 panel_memory > "$PANEL_FIFO" &
 panel_load > "$PANEL_FIFO" &
-panel_battery > "$PANEL_FIFO" &
+#panel_battery > "$PANEL_FIFO" &
 
-cat "$PANEL_FIFO" | panel_bar | bar &
+cat "$PANEL_FIFO" | panel_bar | bar -g x$PANEL_HEIGHT &
 
 wait
