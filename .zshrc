@@ -55,7 +55,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export PATH="/home/zettazete/.config/bspwm/panel:/home/zettazete/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/zettazete/.config/bspwm/panel:/home/zettazete/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export GOPATH=~/dev/go
+export PATH=$PATH:~/dev/go/bin
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -96,7 +99,7 @@ bindkey '^N' down-history
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backwar
+bindkey '^r' history-incremental-search-backward
 
 export KEYTIMEOUT=1
 

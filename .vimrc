@@ -1,5 +1,17 @@
+let mapleader = ","
+let maplocalleader = ","
 set nocompatible
 filetype off
+
+" Color scheme changes
+set t_Co=256
+set background=dark
+colorscheme jellybeans
+
+" Force utf-8 encoding and allow to use last status bar
+set encoding=utf-8
+set termencoding=utf-8
+set laststatus=2
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
@@ -14,32 +26,25 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-" Bundle 'garbas/vim-snipmate'
 Bundle 'SirVer/ultisnips'
 Bundle "honza/vim-snippets"
 Bundle "majutsushi/tagbar"
 Bundle 'jelera/vim-javascript-syntax'
-"Bundle 'pangloss/vim-javascript'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'undx/vim-gocode'
 
-
-"colorscheme distinguished 
 syntax on
-set t_Co=256
-"let g:solarized_termcolors=256
-set background=dark
-"colorscheme solarized
-colorscheme scrot
 set number
 set nowrap
 set cursorline
 hi CursorLine term=bold cterm=bold ctermbg=black
-set synmaxcol=128
+set synmaxcol=160
 set ttyscroll=10
-set tabstop=2 
+set tabstop=2
 set shiftwidth=2
 set noexpandtab
 set nowrap
@@ -51,14 +56,14 @@ set ignorecase
 set smartcase
 filetype plugin indent on
 
+" Vim indent guides
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_python_flake8_args = "--max-line-length=160"
-
-"Snipmate
-" let g:snipMateAllowMatchingDot = 0
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"

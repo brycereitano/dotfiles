@@ -28,7 +28,7 @@ URxvt.internalBorder:       0
 URxvt.lineSpace:            0
  
 ! Fonts
-URxvt*font:               xft:Inconsolata-Regular:style=Semibold:pixelsize=14:antialias=true:hinting=slight
+URxvt*font:               xft:Inconsolata-Regular:style=Semibold:pixelsize=14:antialias=true:hinting=slight, xft:Inconsolata for Powerline
 URxvt*boldFont:           xft:Inconsolata-Regular:style=bold:pixelsize=14:antialias=true:hinting=slight
 !URxvt*font: xft:Monospace:pixelsize=14
 !URxvt*boldFont: xft:Monospace:pixelsize=14
