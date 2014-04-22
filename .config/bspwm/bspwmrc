@@ -20,11 +20,10 @@ bspc config focused_border_color "#439545"
 bspc config urgent_border_color "#B1C97E"
 
 bspc rule -a Gimp desktop=^8 follow=on floating=on
-#bspc rule -a Chromium desktop=^2
 bspc rule -a Screenkey manage=off
 
 compton -CG &
 nm-applet &
 nitrogen --restore &
 trayer --edge top --align right --monitor primary --SetDockType true --SetPartialStrut true --expand true --widthtype request --transparent true --tint 0x191970 --height 16 &
-/home/zettazete/.config/bspwm/panel/panel &
+panel &

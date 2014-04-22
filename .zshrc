@@ -49,13 +49,13 @@ ZSH_THEME="terminalparty"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode web-search tmux nyan archlinux common-aliases)
+plugins=(git vi-mode web-search tmux nyan archlinux common-aliases last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/zettazete/.config/bspwm/panel:/home/zettazete/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/zettazete/.config/bspwm:/home/zettazete/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export GOPATH=~/dev/go
 export PATH=$PATH:~/dev/go/bin
 
@@ -65,11 +65,7 @@ export PATH=$PATH:~/dev/go/bin
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -105,6 +101,7 @@ export KEYTIMEOUT=1
 
 alias sshvm="ssh -p 2020 archie@127.0.0.1"
 alias alsa="alsamixer && sudo alsactl store"
+alias rm="rm -f"
 
 eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 archey

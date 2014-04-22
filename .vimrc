@@ -2,6 +2,8 @@ let mapleader = ","
 let maplocalleader = ","
 set nocompatible
 filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
 
 " Color scheme changes
 set t_Co=256
@@ -36,6 +38,7 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'undx/vim-gocode'
+Bundle 'jnwhiteh/vim-golang'
 
 syntax on
 set number

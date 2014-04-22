@@ -1,0 +1,15 @@
+# ! /bin/sh
+PANEL_HEIGHT=16
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+bspc config top_padding 6
+
+gopanel | bar -g x$PANEL_HEIGHT
+
+wait
