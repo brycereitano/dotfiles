@@ -25,5 +25,5 @@ bspc rule -a Screenkey manage=off
 compton -CG &
 nm-applet &
 nitrogen --restore &
-trayer --edge top --align right --monitor primary --SetDockType true --SetPartialStrut true --expand true --widthtype request --transparent true --tint 0x191970 --height 16 &
+trayer --edge top --align left --margin 400 --monitor primary --SetDockType true --widthtype request --transparent true --height 16 &
 panel &

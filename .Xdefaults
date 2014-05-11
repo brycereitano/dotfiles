@@ -1,7 +1,7 @@
 !-------------------------------------------------------------------------------
 ! Xft settings
 !-------------------------------------------------------------------------------
- 
+
 Xft.dpi:                    96
 Xft.autohint:               true
 Xft.antialias:              true
@@ -9,82 +9,75 @@ Xft.hinting:                true
 Xft.hintstyle:              hintslight
 Xft.rgba:                   rgb
 Xft.lcdfilter:              lcddefault
- 
+
 !-------------------------------------------------------------------------------
 ! URxvt settings
 ! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
 ! More info at:
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
- 
+
 URxvt.depth:                32
-URxvt.geometry:             90x30
-URxvt.transparent:          false
-URxvt.fading:               0
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
+URxvt.transparent:					false
+URxvt.fading:               20
 URxvt.saveLines:            1000
 URxvt.internalBorder:       0
 URxvt.lineSpace:            0
- 
+
 ! Fonts
-URxvt*font:               xft:Inconsolata-Regular:style=Semibold:pixelsize=14:antialias=true:hinting=slight, xft:Inconsolata for Powerline
-URxvt*boldFont:           xft:Inconsolata-Regular:style=bold:pixelsize=14:antialias=true:hinting=slight
-!URxvt*font: xft:Monospace:pixelsize=14
-!URxvt*boldFont: xft:Monospace:pixelsize=14
- 
+URxvt*font:               xft:DejaVu Sans Mono for Powerline:pixelsize=13
+URxvt*boldFont:           xft:DejaVu Sans Mono for Powerline:style=bold:pixelsize=13
+
 ! Fix font space
-URxvt*letterSpace: -1
- 
+URxvt*letterSpace: 0
+
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
- 
+
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher
+URxvt.perl-ext-common:      default,matcher,clipboard
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          chromium
- 
+URxvt.keysym.M-c:   				perl:clipboard:copy
+URxvt.keysym.M-v:   				perl:clipboard:paste
+URxvt.keysym.M-S-v: 				perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  	xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: 	xclip -o -selection clipboard
+
+
 ! Cursor
 URxvt.cursorBlink:          true
 URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
- 
+
 ! Pointer
 URxvt.pointerBlank:         true
- 
-! vim: set filetype=xdefaults :
-*foreground: #D7D0C7
-*background: #151515
 
-!black
-! *color0:     #AF875F
-! *color8:     #AF875F
-*color0:     #101010
-*color8:     #404040
-!red
-*color1:     #E84F4F
-*color9:     #D23D3D
-!green
-*color2:     #B8D68C
-*color10:    #A0CF5D
-!yellow
-*color3:     #E1AA5D
-*color11:    #F39D21
-!blue
-*color4:     #7DC1CF
-*color12:    #4E9FB1
-!magenta
-*color5:     #9B64FB
-*color13:    #8542FF
-!cyan
-*color6:     #6D878D
-*color14:    #42717B
-!white
-*color7:     #dddddd
-*color15:    #dddddd
-
-URxvt*borderColor:        #151515
-URxvt*colorBD:            #ffffff
-URxvt*cursorColor:        #ff8939
-URxvt*cursorColor2:       #151515
+! Jellybeans Terminal Colours
+urxvt.background: [90]#151515
+urxvt.foreground: #ffffff
+! black
+urxvt.color0: #151515
+urxvt.color8: #525252
+! red
+urxvt.color1: #cf6a4c
+urxvt.color9: #ff9d80
+! green
+urxvt.color2: #99ad6a
+urxvt.color10: #c3e6ad
+! yellow
+urxvt.color3: #fad07a
+urxvt.color11: #ffefbf
+! blue
+urxvt.color4: #8197bf
+urxvt.color12: #accaff
+! magenta
+urxvt.color5: #8787af
+urxvt.color13: #c4c4ff
+! cyan
+urxvt.color6: #8fbfdc
+urxvt.color14: #80bfaf
+! white
+urxvt.color7: #888888
+urxvt.color15: #e8e8d3
