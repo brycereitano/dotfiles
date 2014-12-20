@@ -26,28 +26,28 @@ Bundle 'gmarik/vundle'
 " Bundles
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 "Bundle 'SirVer/ultisnips'
 "Bundle 'honza/vim-snippets'
 Bundle "majutsushi/tagbar"
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'Raimondi/delimitMate'
+Bundle "tpope/vim-fugitive"
+
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'vim-scripts/AfterColors.vim'
-Bundle "ekalinin/Dockerfile.vim"
 
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Blackrush/vim-gocode'
+Bundle 'jimenezrick/vimerl'
 
 syntax on
 set number
 set nowrap
-set cursorline
+"set cursorline
 set synmaxcol=160
 set ttyscroll=10
 set tabstop=2
@@ -66,15 +66,22 @@ filetype plugin indent on
 
 " Vim Airline
 let g:airline_powerline_fonts = 1
+"let g:tmuxline_powerline_separators = 0
 
 " Vim indent guides
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_enable_on_vim_startup = 1
 
+" DelimitMate
+let delimitMate_expand_cr = 2
+
 " Syntastic
 let g:syntastic_check_on_open=1
+let g:syntastic_cpp_compiler_options = ' -std=c++0x'
+let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_python_flake8_args = "--max-line-length=160"
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [], 'passive_filetypes': ['asm'] }
 
 " Ultisnips and YouCompleteMe fix
 let g:UltiSnipsExpandTrigger = '<C-l>'
@@ -82,7 +89,7 @@ let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Tagbar
-nmap <C-x> :TagbarToggle<CR>
+nmap <C-b> :TagbarToggle<CR>
 
 " YCM gives you popups and splits by default that some people might not like, so these should tidy it up a bit for you.
 set completeopt-=preview
@@ -98,19 +105,11 @@ set completeopt-=preview
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 map <C-n> :NERDTreeToggle<CR>
 " let g:NERDTreeDirArrows=0
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '\.o$']
 
 if bufwinnr(2)
   map + <C-W>5>
   map - <C-W>5<
 endif
-
-" autocmd BufWritePre * :%!sed -r 's/\s+$//'
-
-" Map ctrl-movement keys to window switching
-" map <C-k> <C-w><Up>
-" map <C-j> <C-w><Down>
-" map <C-l> <C-w><Right>
-" map <C-h> <C-w><Left>
 
 imap <C-o> <CR><Esc>O
