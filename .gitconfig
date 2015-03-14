@@ -1,0 +1,30 @@
+[user]
+	email = bryce@rocketmade.com
+	name = Bryce Reitano
+
+[push]
+	default = simple
+
+[color]
+  ui = true
+
+[alias]
+  co = checkout
+  ci = commit
+  rb = rebase
+  s = status
+  d = diff
+  b = branch
+	undo-commit = reset --soft HEAD^
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[github]
+	user = brycereitano
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
