@@ -24,8 +24,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source "$HOME/.bin/tmuxinator.zsh"
-
 export EDITOR='vim'
 
 HISTFILE=~/.histfile
@@ -42,7 +40,7 @@ alias pmux="tmux attach -t programming || tmux new -s programming"
 
 alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-if [[ "$OS_NAME" == "LINUX" ]]; then
+if [[ "$OS_NAME" == "Linux" ]]; then
   export XDG_CONFIG_HOME="$HOME/.config"
   eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
   archey

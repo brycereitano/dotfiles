@@ -8,7 +8,7 @@ fi
 
 trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 
-bspc config top_padding 6
+bspc config top_padding 10
 
 gopanel | bar -g x$PANEL_HEIGHT
 
