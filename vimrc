@@ -38,8 +38,6 @@ Plugin 'djoshea/vim-autoread'
 Plugin 'rking/ag.vim'
 if os == "Linux"
   Plugin 'Valloric/YouCompleteMe'
-elseif os == "Darwin"
-  Plugin 'Shougo/neocomplete.vim'
 endif
 
 " Visual Preferences
@@ -51,6 +49,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Git
 " ---
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 
@@ -70,10 +69,13 @@ Plugin 'vim-ruby/vim-ruby'
 " Visual Preferences
 " ==================
 
+" Allow Hidden Buffers
+" --------------------
+set hidden
+
 " Coding Helpers
 " --------------
 syntax on
-set number
 set autoread
 set nowrap
 "set cursorline " Comment this out, if there is lag
@@ -84,8 +86,8 @@ set hlsearch
 
 " Performance Improvements
 " ------------------------
-set synmaxcol=160
-set ttyscroll=3
+set synmaxcol=180
+set ttyscroll=999
 set ttyfast
 
 " Move backups
@@ -97,8 +99,34 @@ set dir=/tmp
 set ignorecase
 set smartcase
 
+" Relative Line Numbers
+" ---------------------
+set norelativenumber
+set number
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+map <Leader>n :call NumberToggle()<cr>
+
 filetype plugin indent on
 filetype on
+
+" Highlight TODO
+" --------------
+augroup HiglightTODO
+  autocmd!
+  autocmd WinEnter,VimEnter * :silent! call matchadd('Constant', 'TODO:', -1)
+augroup END
+
+
+" Plugin Configurations
+" =====================
 
 " Go
 " --
@@ -128,12 +156,16 @@ let g:syntastic_cpp_compiler_options = ' -std=c++0x'
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_python_flake8_args = "--max-line-length=160"
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['go'], 'passive_filetypes': ['asm'] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby','go'], 'passive_filetypes': ['asm'] }
 let g:syntastic_html_tidy_exec = "/usr/local/bin/tidy5"
 
 " Tagbar
 " ------
 nmap <C-b> :TagbarToggle<CR>
+
+" Git Gutter
+" ----------
+let g:gitgutter_realtime = 1
 
 " Gist
 " ----
@@ -166,6 +198,11 @@ if bufwinnr(2)
   map + <C-W>5>
   map - <C-W>5<
 endif
+
+" Edit vimrc
+" ----------
+autocmd bufwritepost .vimrc source $MYVIMRC
+map <leader>v :tabedit $MYVIMRC<CR>
 
 " Error Navigation
 map <Leader>h :cprev<CR>
