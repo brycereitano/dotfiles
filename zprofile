@@ -3,8 +3,10 @@ export PATH="/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr
 export PATH="$HOME/dev/go/bin:$HOME/bin:$HOME/.rbenv/bin:/usr/sbin:$PATH"
 eval "$(rbenv init -)"
 
+source $HOME/.apiary.sh
+
 if [[ "$OS_NAME" == "Linux" ]]; then
   export PATH="$HOME/.config/bspwm:$PATH"
-  pulseaudio --start
+  #pulseaudio --start
   [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 fi

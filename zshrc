@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load.
 ZSH_THEME="terminalparty"
 
-plugins=(git gitfast last-working-dir adb common-aliases)
+plugins=(adb aws bundler common-aliases docker git gitfast knife sudo tmux tmuxinator zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 export TERM="screen-256color"
 export GOPATH="$HOME/dev/go"
 export DISABLE_AUTO_TITLE=true
+export DISABLE_SPRING=1
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
@@ -35,11 +36,17 @@ setopt appendhistory autocd
 unsetopt beep
 export KEYTIMEOUT=1
 
+export ZSH_TMUX_AUTOSTART=true
+
 alias alsa="alsamixer && sudo alsactl store"
 alias rm="rm -f"
 alias pmux="tmux attach -t programming || tmux new -s programming"
 
 alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+alias vim="echo -e '$(tput setaf 1)USE NVIM INSTEAD YOU IDIOT'"
+
+generate_password () { cat /dev/urandom| tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n $2 }
 
 if [[ "$OS_NAME" == "Linux" ]]; then
   export XDG_CONFIG_HOME="$HOME/.config"
