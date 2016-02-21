@@ -17,6 +17,8 @@ Xft.lcdfilter:              lcddefault
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
 
+URxvt.termName:             xterm-256color
+
 URxvt.depth:                32
 URxvt.transparent:					false
 URxvt.fading:               20
@@ -29,7 +31,7 @@ URxvt*font:               xft:DejaVu Sans Mono for Powerline:pixelsize=13
 URxvt*boldFont:           xft:DejaVu Sans Mono for Powerline:style=bold:pixelsize=13
 
 ! Fix font space
-URxvt*letterSpace: 0
+URxvt*letterSpace: -1
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
@@ -44,7 +46,6 @@ URxvt.keysym.M-v:   				perl:clipboard:paste
 URxvt.keysym.M-S-v: 				perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:  	xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: 	xclip -o -selection clipboard
-
 
 ! Cursor
 URxvt.cursorBlink:          true
